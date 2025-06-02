@@ -263,6 +263,18 @@ systemd-analyze
 - 移除相机和音频支持
 
 ---
+
 **配置状态**: ✅ 完成并验证  
 **准备状态**: ✅ 可用于生产环境Flash  
 **文档状态**: ✅ 完整
+
+
+
+## 编译设备树
+``` bash
+# 编译
+cd /home/rm01/nvidia/nvidia_sdk/JetPack_6.2_Linux_JETSON_AGX_ORIN_TARGETS/Linux_for_Tegra && dtc -I dts -O dtb -o kernel/dtb/tegra234-rm01+p3701-0005.dtb kernel/tegra234-rm01+p3701-0005.dts
+# 验证
+cd /home/rm01/nvidia/nvidia_sdk/JetPack_6.2_Linux_JETSON_AGX_ORIN_TARGETS/Linux_for_Tegra && ls -la kernel/dtb/tegra234-rm01+p3701-0005.dtb
+cd /home/rm01/nvidia/nvidia_sdk/JetPack_6.2_Linux_JETSON_AGX_ORIN_TARGETS/Linux_for_Tegra && file kernel/dtb/tegra234-rm01+p3701-0005.dtb && stat kernel/dtb/tegra234-rm01+p3701-0005.dtb
+```
