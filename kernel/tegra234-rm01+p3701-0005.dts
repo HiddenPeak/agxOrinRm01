@@ -4537,7 +4537,7 @@
 			iommu-map-mask = <0x00>;
 			dma-coherent;
 			status = "okay";
-		nvme-detect-gpio = <&tegra_main_gpio TEGRA234_MAIN_GPIO(AC, 0) GPIO_ACTIVE_HIGH>;
+			nvme-detect-gpio = <0xf1 0x49 0x00>;
 			vddio-pex-ctl-supply = <0x115>;
 			vpcie3v3-supply = <0x116>;
 			vpcie12v-supply = <0x117>;
