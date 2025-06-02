@@ -3720,7 +3720,7 @@
 			interconnect-names = "dma-mem\0write";
 			iommus = <0x04 0x06>;
 			power-domains = <0x03 0x12>;
-			status = "okay";
+			status = "disabled";  // RM01: 使用PCIe RTL8111H替代MGBE
 			snps,axi-config = <0x106>;
 			phy-handle = <0x107>;
 			phy-mode = "10gbase-r";
@@ -3881,7 +3881,7 @@
 				interrupt-parent = <0xf1>;
 				interrupts = <0x94 0x08>;
 				firmware-name = "nvidia,jetson-agx-xavier";
-				status = "okay";
+				status = "disabled";  // RM01: 载板无USB-C控制器
 				#address-cells = <0x01>;
 				#size-cells = <0x00>;
 
@@ -4540,6 +4540,8 @@
 			vddio-pex-ctl-supply = <0x115>;
 			vpcie3v3-supply = <0x116>;
 			vpcie12v-supply = <0x117>;
+			// GPIO17 (PH01) for CFE-type B NVMe detection
+			nvme-detect-gpio = <0xf1 0x49 0x00>;  // GPIO_PH01 (GPIO17) active high
 			phys = <0x118 0x119 0x11a 0x11b 0x11c 0x11d 0x11e 0x11f>;
 			phy-names = "p2u-0\0p2u-1\0p2u-2\0p2u-3\0p2u-4\0p2u-5\0p2u-6\0p2u-7";
 		};
@@ -4566,12 +4568,10 @@
 			iommu-map = <0x00 0x04 0x14 0x1000>;
 			iommu-map-mask = <0x00>;
 			dma-coherent;
-			status = "okay";  // RM01: Enabled for NVMe CFE-type B
+			status = "disabled";  // RM01: 禁用端点模式，避免与根复合模式冲突
 			vddio-pex-ctl-supply = <0x115>;
 			reset-gpios = <0xf1 0xb9 0x01>;
 			nvidia,refclk-select-gpios = <0x10a 0x04 0x00>;
-			// GPIO17 for CFE-type B detection and hot-plug
-			nvme-detect-gpio = <0xf1 0x49 0x00>;  // GPIO_PH01 (GPIO17) active high
 			phys = <0x118 0x119 0x11a 0x11b 0x11c 0x11d 0x11e 0x11f>;
 			phy-names = "p2u-0\0p2u-1\0p2u-2\0p2u-3\0p2u-4\0p2u-5\0p2u-6\0p2u-7";
 		};
