@@ -4537,11 +4537,11 @@
 			iommu-map-mask = <0x00>;
 			dma-coherent;
 			status = "okay";
+		nvme-detect-gpio = <&tegra_main_gpio TEGRA234_MAIN_GPIO(AC, 0) GPIO_ACTIVE_HIGH>;
 			vddio-pex-ctl-supply = <0x115>;
 			vpcie3v3-supply = <0x116>;
 			vpcie12v-supply = <0x117>;
 			// GPIO17 (PH01) for CFE-type B NVMe detection
-			nvme-detect-gpio = <0xf1 0x49 0x00>;  // GPIO_PH01 (GPIO17) active high
 			phys = <0x118 0x119 0x11a 0x11b 0x11c 0x11d 0x11e 0x11f>;
 			phy-names = "p2u-0\0p2u-1\0p2u-2\0p2u-3\0p2u-4\0p2u-5\0p2u-6\0p2u-7";
 		};
